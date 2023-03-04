@@ -9,6 +9,12 @@ class Invoice extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     const STATUS_DRAFT = 'draft';
 
     const STATUS_PENDING = 'pending';
@@ -23,6 +29,14 @@ class Invoice extends Model
 
     protected $fillable = [
         'id',
+        'from_street_address',
+        'from_city',
+        'from_post_code',
+        'from_country',
+        'to_street_address',
+        'to_city',
+        'to_post_code',
+        'to_country',
         'description',
         'client_name',
         'client_email',
