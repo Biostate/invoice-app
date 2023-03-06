@@ -17,7 +17,7 @@ class InvoiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => strtoupper(fake()->bothify('??####')),
+            'id' => fake()->bothify('??####'),
 
             'user_id' => \App\Models\User::factory()->create()->id,
 
