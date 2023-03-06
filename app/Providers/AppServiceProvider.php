@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Response::macro('apiResponse', function (string $message, $error = [], $data = null, bool $status = true, int $code = 200) {
+            return response()->json([
+                'message' => $message,
+                'data' => $data,
+                'errors' => $error,
+                'status' => $status,
+            ], $code);
+        });
+
         $this->app->bind(\App\Services\InvoiceServiceInterface::class, \App\Services\InvoiceService::class);
     }
 }
