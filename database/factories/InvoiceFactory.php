@@ -19,6 +19,8 @@ class InvoiceFactory extends Factory
         return [
             'id' => strtoupper(fake()->bothify('??####')),
 
+            'user_id' => \App\Models\User::factory()->create()->id,
+
             'from_street_address' => fake()->streetAddress(),
             'from_city' => fake()->city(),
             'from_post_code' => fake()->postcode(),
