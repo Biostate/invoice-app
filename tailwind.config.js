@@ -18,7 +18,9 @@ module.exports = {
             'custom-gray-light': '#F4F4F5',
             'custom-black': '#0C0E16',
             'custom-five': '#DFE3FA',
+            'custom-six': '#888EB0',
             'custom-seven': '#7E88C3',
+            'custom-eight': '#EC5757',
         }
     },
   },
