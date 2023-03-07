@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/pages/Home.vue";
+import InvoiceDetails from "@/pages/InvoiceDetails.vue";
 import Login from "@/pages/Login.vue";
 import guest from "@/middlewares/guest";
+import auth from "@/middlewares/auth";
 
 import routerBeforeEach from "@/utils/routerBeforeEach";
 
@@ -13,6 +16,21 @@ const router = createRouter({
             component: Login,
             meta: {
                 middleware: [guest],
+            },
+        },{
+            path: "/",
+            name: "home",
+            component: Home,
+            meta: {
+                middleware: [auth],
+            },
+        },
+        {
+            path: "/invoices/:id",
+            name: "invoice",
+            component: InvoiceDetails,
+            meta: {
+                middleware: [auth],
             },
         },
     ],
