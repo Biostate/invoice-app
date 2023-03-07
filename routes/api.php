@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 // TODO: add throttling and guest middleware
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
-        return $request->user();
+        return new \App\Http\Resources\UserResource($request->user());
     });
+
+    Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+
+    Route::resource('/invoices', \App\Http\Controllers\Api\InvoiceController::class);
 });
