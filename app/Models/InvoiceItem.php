@@ -34,4 +34,9 @@ class InvoiceItem extends Model
     {
         return $this->belongsTo(Invoice::class);
     }
+
+    public function getTotalAttribute()
+    {
+        return $this->quantity * $this->price;
+    }
 }
