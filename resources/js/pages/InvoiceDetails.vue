@@ -1,11 +1,11 @@
 <template>
     <div class="w-[730px] mx-auto min-h-screen py-16" v-if="invoice.hasOwnProperty('id')">
-        <div>
+        <router-link :to="{name: 'home'}">
             <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.3418 0.886047L0.113895 5.11395L4.3418 9.34185" stroke="#7C5DFA" stroke-width="2"/>
             </svg>
             Go Back
-        </div>
+        </router-link>
         <div class="shadow-xl bg-white flex justify-between p-5 rounded-lg mb-6">
             <div class="flex flex-row justify-center items-center">
                 <span class="text-[#858BB2] text-[13px] mr-3">Status</span>
@@ -79,7 +79,11 @@
                         <h5 class="text-[13px] text-custom-seven text-right">Total</h5>
                     </div>
                 </div>
-                <div v-for="item in invoice.items" :key="item.id" class="grid grid-cols-4 mb-3">
+                <div
+                    v-for="item in invoice.items"
+                    :key="item.id"
+                    class="grid grid-cols-4 mb-3"
+                >
                     <div>
                         <p class="text-[15px] font-bold text-custom-black">{{ item.name }}</p>
                     </div>
@@ -87,10 +91,10 @@
                         <p class="text-[15px] font-bold text-custom-seven text-center">{{ item.quantity }}</p>
                     </div>
                     <div>
-                        <p class="text-[15px] font-bold text-custom-seven text-right">£ {{ item.price.toFixed(2) }}</p>
+                        <p class="text-[15px] font-bold text-custom-seven text-right">{{ MoneyFormatter(item.price, '£') }}</p>
                     </div>
                     <div>
-                        <p class="text-[15px] font-bold text-custom-black text-right">£ {{ item.total.toFixed(2) }}</p>
+                        <p class="text-[15px] font-bold text-custom-black text-right">{{ MoneyFormatter(item.total, '£') }}</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +103,7 @@
                     <span class="text-[13px]">Amount Due</span>
                 </div>
                 <div>
-                    <span class="text-[24px] font-bold">£ {{ invoice.total.toFixed(2) }}</span>
+                    <span class="text-[24px] font-bold">{{ MoneyFormatter(invoice.total, '£') }}</span>
                 </div>
             </div>
         </div>
@@ -112,6 +116,7 @@ import {onMounted, ref} from 'vue'
 import { getInvoice } from "@/requests/invoice"
 import {useRoute} from "vue-router";
 import dayjs from "dayjs";
+import MoneyFormatter from "@/utils/moneyFormatter";
 
 const route = useRoute();
 
