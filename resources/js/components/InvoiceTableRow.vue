@@ -1,7 +1,7 @@
 <template>
     <div
         @click="goToInvoice(invoice.id)"
-        class="flex flex-row justify-center items-center bg-white shadow p-8 rounded-lg mb-4 cursor-pointer h-full text-[15px]"
+        class="flex flex-row justify-center items-center bg-white shadow px-7 py-5 rounded-lg mb-4 cursor-pointer h-full text-[15px]"
     >
         <div class="w-1/6 h-full">
             <span class="font-bold text-lg">
@@ -16,7 +16,7 @@
             {{ invoice.client_name }}
         </div>
         <div class="w-1/6 h-full font-bold text-center text-lg">
-            £ {{ invoice.total }}
+            {{ MoneyFormatter(invoice.total, '£') }}
         </div>
         <div class="w-1/6 h-full text-right flex justify-between justify-center items-center ">
             <InvoiceStatusBadge :status="invoice.status" />
@@ -34,6 +34,7 @@
 import InvoiceStatusBadge from "@/components/InvoiceStatusBadge.vue";
 import dayjs from "dayjs";
 import { useRouter } from "vue-router";
+import MoneyFormatter from "@/utils/moneyFormatter";
 
 const props = defineProps({
     invoice: {
