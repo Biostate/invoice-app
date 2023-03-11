@@ -22,11 +22,11 @@ This is a simple invoice app that allows you to create invoices.
 
 ## Todo
 
-- [ ] Choose GraphQL or REST API for the frontend
+- [x] Choose GraphQL or REST API for the frontend
   - [ ] Create tests for API
   - [ ] Create a documentation for API
-- [ ] Create a frontend
-  - [ ] Choose a framework
+- [x] Create a frontend
+  - [x] Choose a framework
 - [ ] Add ESLint to the frontend
 - [ ] Add Pint to the backend
 
@@ -38,5 +38,5 @@ If you want to run the tests, you will need to create a copy of your .env.exampl
 php artisan test
 ```
 
-Note: Because of Laravel 10, i don't want to use PestPHP for now. Test will be change to PestPHP in the future.
+Note: Because of Laravel 10, i don't want to use PestPHP for now. Tests will be changed to PestPHP in the future.
 [Click for details](https://pestphp.com/docs/installation#requirements)
