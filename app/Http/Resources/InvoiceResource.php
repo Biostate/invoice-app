@@ -32,6 +32,7 @@ class InvoiceResource extends JsonResource
             'payment_terms' => $this->payment_terms,
             'status' => $this->status,
             'payment_due' => $this->payment_due,
+            'invoice_date' => $this->invoice_date,
             'total' => $this->total,
             'created_at' => $this->created_at,
             'items' => InvoiceItemResource::collection($this->items),
