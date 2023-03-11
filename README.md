@@ -9,9 +9,11 @@ This is a simple invoice app that allows you to create invoices.
 3. Run `npm install`
 4. Create a copy of your .env.example file and name it .env
 5. Change your VITE_APP_URL to `http://127.0.0.1:8000` in your .env file
-5. Run `npm run dev`
-6. Run `php artisan serve`
-7. Visit `http://127.0.0.1:8000` in your browser
+6. Run `php artisan key:generate`
+7. Run `php artisan migrate --seed`. This generates dummy user for you.
+8. Run `npm run dev`
+9. Run `php artisan serve`
+10. Visit `http://127.0.0.1:8000` in your browser
 
 ## Usage
 
