@@ -23,6 +23,10 @@ module.exports = {
             'custom-eight': '#EC5757',
         }
     },
+      fontSize: {
+          sm: '13px',
+          base: '15px',
+      }
   },
   plugins: [],
 }
