@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ShortInvoiceCollection;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = auth()->user()->invoices()->paginate(10);
+        $invoices = auth()->user()->invoices()->orderBy('created_at', 'desc')->paginate(10);
 
-        $data = \App\Http\Resources\ShortInvoiceResource::collection($invoices);
-
-        return response()->apiResponse(
-            data: $data
-        );
+        return  new ShortInvoiceCollection($invoices);
     }
 
     /**
@@ -27,7 +24,41 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // TODO: add validation here
+
+        $invoiceData = $request->only(
+            [
+                'from_street_address',
+                'from_city',
+                'from_post_code',
+                'from_country',
+                'to_street_address',
+                'to_city',
+                'to_post_code',
+                'to_country',
+                'description',
+                'client_name',
+                'client_email',
+                'payment_terms',
+                'invoice_date',
+            ]
+        );
+
+        $invoiceData['id'] = fake()->bothify('??####');
+        $invoiceData['status'] = Invoice::STATUS_PENDING;
+        $invoiceData['payment_due'] = now()->addDays($request['payment_due']);
+
+        $invoice = auth()->user()->invoices()->create($invoiceData);
+
+        $invoice->items()->createMany(
+            $request->items
+        );
+
+        $data = new \App\Http\Resources\InvoiceResource($invoice);
+
+        return response()->apiResponse(
+            data: $data
+        );
     }
 
     /**
