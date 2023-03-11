@@ -4,7 +4,7 @@
             id="popup-modal"
             tabindex="-1"
             :class="{ 'hidden': !modelValue }"
-            class="fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto h-[calc(100%-1rem)] bg-custom-gray-light"
+            class="fixed inset-0 z-50 overflow-x-hidden overflow-y-auto bg-custom-gray-light"
         >
             <div class="relative w-full h-full">
                 <div class="relative bg-white rounded-lg shadow w-[480px]  m-auto">
