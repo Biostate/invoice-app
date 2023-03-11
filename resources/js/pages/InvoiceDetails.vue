@@ -65,38 +65,12 @@
                 </div>
             </div>
             <div class="rounded-t-lg bg-[#F9FAFE] p-8">
-                <div class="grid grid-cols-12 mb-8">
-                    <div class="col-span-7">
-                        <h5 class="text-[13px] text-custom-seven">Item Name</h5>
-                    </div>
-                    <div>
-                        <h5 class="text-[13px] text-custom-seven text-center">QTY.</h5>
-                    </div>
-                    <div class="col-span-2">
-                        <h5 class="text-[13px] text-custom-seven text-right">Price</h5>
-                    </div>
-                    <div class="col-span-2">
-                        <h5 class="text-[13px] text-custom-seven text-right">Total</h5>
-                    </div>
-                </div>
-                <div
+                <invoice-item-table-head />
+                <invoice-item-table-row
                     v-for="item in invoice.items"
                     :key="item.id"
-                    class="grid grid-cols-12 mb-3"
-                >
-                    <div class="col-span-7">
-                        <p class="text-[15px] font-bold text-custom-black">{{ item.name }}</p>
-                    </div>
-                    <div>
-                        <p class="text-[15px] font-bold text-custom-seven text-center">{{ item.quantity }}</p>
-                    </div>
-                    <div class="col-span-2">
-                        <p class="text-[15px] font-bold text-custom-seven text-right">{{ MoneyFormatter(item.price, '£') }}</p>
-                    </div>
-                    <div class="col-span-2">
-                        <p class="text-[15px] font-bold text-custom-black text-right">{{ MoneyFormatter(item.total, '£') }}</p>
-                    </div>
-                </div>
+                    :item="item"
+                />
             </div>
             <div class="flex justify-between rounded-b-lg bg-custom-gray text-white p-8">
                 <div>
@@ -117,6 +91,8 @@ import { getInvoice } from "@/requests/invoice"
 import {useRoute} from "vue-router";
 import dayjs from "dayjs";
 import MoneyFormatter from "@/utils/moneyFormatter";
+import InvoiceItemTableHead from "@/components/InvoiceItemTableHead.vue";
+import InvoiceItemTableRow from "@/components/InvoiceItemTableRow.vue";
 
 const route = useRoute();
 
