@@ -21,6 +21,9 @@ const props = defineProps({
     modelValue: {
         required: true,
     },
+    modelModifiers: {
+        default: () => ({})
+    },
     label: {
         type: String,
         required: false,
@@ -58,14 +61,14 @@ const inputClass = computed(() => {
         'border': true,
         'border-gray-300': true,
         'text-gray-900': true,
-        'sm:text-sm rounded-lg': true,
+        'rounded-lg': true,
         'focus:ring-primary-600': true,
         'focus:border-primary-600': true,
         'block': true,
         'w-full': true,
         'p-4': true,
         'font-bold': true,
-        'text-[15px]': true,
+        'text-base': true,
     };
 
     return {...defaultClass,...props.inputClass};
