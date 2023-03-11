@@ -1,16 +1,16 @@
 <template>
-    <div class="grid grid-cols-12 mb-8">
+    <div class="grid grid-cols-12 mb-8 text-sm text-custom-seven ">
         <div class="col-span-7">
-            <h5 class="text-[13px] text-custom-seven">Item Name</h5>
+            Item Name
         </div>
-        <div>
-            <h5 class="text-[13px] text-custom-seven text-center">QTY.</h5>
+        <div class="text-center">
+            QTY.
         </div>
-        <div class="col-span-2">
-            <h5 class="text-[13px] text-custom-seven text-right">Price</h5>
+        <div class="col-span-2 text-right">
+            Price
         </div>
-        <div class="col-span-2">
-            <h5 class="text-[13px] text-custom-seven text-right">Total</h5>
+        <div class="col-span-2 text-right">
+            Total
         </div>
     </div>
 </template>
