@@ -7,62 +7,26 @@
                         Sign in to your account for manage your invoices
                     </h1>
                     <form class="space-y-4 md:space-y-6" @submit.prevent="loginHandler">
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-custom-seven">
-                                Your email
-                            </label>
-                            <input
-                                v-model="email"
-                                type="email"
-                                name="email"
-                                id="email"
-                                class="
-                                    bg-white
-                                    border
-                                    border-gray-300
-                                    text-gray-900
-                                    sm:text-sm rounded-lg
-                                    focus:ring-primary-600
-                                    focus:border-primary-600
-                                    block
-                                    w-full
-                                    p-4
-                                "
-                                placeholder="test@example.com"
-                                required>
-                        </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-custom-seven">
-                                Password
-                            </label>
-                            <input
-                                v-model="password"
-                                type="password"
-                                name="password"
-                                id="password"
-                                placeholder="••••••••"
-                                class="
-                                    bg-white
-                                    border
-                                    border-gray-300
-                                    text-gray-900
-                                    sm:text-sm rounded-lg
-                                    focus:ring-primary-600
-                                    focus:border-primary-600
-                                    block
-                                    w-full
-                                    p-4
-                                "
-                                required>
-                        </div>
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="remember" class="text-gray-500">Remember me</label>
-                                </div>
+                        <base-input
+                            v-model="email"
+                            type="email"
+                            placeholder="test@example.com"
+                            :required="true"
+                        />
+                        <base-input
+                            v-model="password"
+                            type="password"
+                            placeholder="••••••••"
+                            :required="true"
+                        />
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300">
                             </div>
+                            <div class="ml-3 text-sm">
+                                <label for="remember" class="text-gray-500">Remember me</label>
+                            </div>
+                        </div>
                         <button
                             type="submit"
                             class="
@@ -95,6 +59,7 @@ import ValidationList from "@/components/ValidationList.vue";
 import { useAuthStore } from "@/stores/auth";
 import { ref } from 'vue';
 import { useRouter } from "vue-router";
+import BaseInput from "@/components/BaseInput.vue";
 
 const email = ref('');
 const password = ref('');
