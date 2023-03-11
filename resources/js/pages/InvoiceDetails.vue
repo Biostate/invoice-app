@@ -40,8 +40,8 @@
                     <p>{{invoice.from_country}}</p>
                 </div>
             </div>
-            <div class="grid grid-cols-4 mb-10">
-                <div class="grid grid-cols-1 gap-4 content-between">
+            <div class="grid grid-cols-3 gap-6 mb-10">
+                <div class="grid content-between">
                     <div>
                         <h5 class="text-[13px] text-custom-seven mb-2">Invoice Date</h5>
                         <p class="text-[15px] font-bold text-custom-black">{{ dayjs(invoice.created_at).format('DD MMM YYYY') }}</p>
@@ -59,41 +59,41 @@
                     <p>{{invoice.to_post_code}}</p>
                     <p>{{invoice.to_country}}</p>
                 </div>
-                <div class="col-span-2">
+                <div>
                     <h5 class="text-[13px] text-custom-seven mb-2">Send To</h5>
                     <p class="text-[15px] font-bold text-custom-black">{{invoice.client_email}}</p>
                 </div>
             </div>
             <div class="rounded-t-lg bg-[#F9FAFE] p-8">
-                <div class="grid grid-cols-4 mb-8">
-                    <div>
+                <div class="grid grid-cols-12 mb-8">
+                    <div class="col-span-7">
                         <h5 class="text-[13px] text-custom-seven">Item Name</h5>
                     </div>
                     <div>
                         <h5 class="text-[13px] text-custom-seven text-center">QTY.</h5>
                     </div>
-                    <div>
+                    <div class="col-span-2">
                         <h5 class="text-[13px] text-custom-seven text-right">Price</h5>
                     </div>
-                    <div>
+                    <div class="col-span-2">
                         <h5 class="text-[13px] text-custom-seven text-right">Total</h5>
                     </div>
                 </div>
                 <div
                     v-for="item in invoice.items"
                     :key="item.id"
-                    class="grid grid-cols-4 mb-3"
+                    class="grid grid-cols-12 mb-3"
                 >
-                    <div>
+                    <div class="col-span-7">
                         <p class="text-[15px] font-bold text-custom-black">{{ item.name }}</p>
                     </div>
                     <div>
                         <p class="text-[15px] font-bold text-custom-seven text-center">{{ item.quantity }}</p>
                     </div>
-                    <div>
+                    <div class="col-span-2">
                         <p class="text-[15px] font-bold text-custom-seven text-right">{{ MoneyFormatter(item.price, '£') }}</p>
                     </div>
-                    <div>
+                    <div class="col-span-2">
                         <p class="text-[15px] font-bold text-custom-black text-right">{{ MoneyFormatter(item.total, '£') }}</p>
                     </div>
                 </div>
