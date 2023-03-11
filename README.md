@@ -11,7 +11,7 @@ This is a simple invoice app that allows you to create invoices.
 5. Change your VITE_APP_URL to `http://127.0.0.1:8000` in your .env file
 5. Run `npm run dev`
 6. Run `php artisan serve`
-7. Visit `http://127.0.0.1:8000]` in your browser
+7. Visit `http://127.0.0.1:8000` in your browser
 
 ## Usage
 
