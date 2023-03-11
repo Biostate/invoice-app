@@ -1,13 +1,15 @@
 <template>
-    <span :class="{
-        'inline-flex': true,
-        'items-center': true,
-        'w-full': true,
-        'p-2': true,
-        'rounded-lg': true,
-        'text-sm': true,
-        'font-bold': true,
-        'justify-center': true,
+    <span class="
+            inline-flex
+            items-center
+            w-full
+            p-2
+            rounded-lg
+            text-base
+            font-bold
+            justify-center
+        "
+        :class="{
         'bg-custom-green-light': status === 'paid',
         'bg-custom-orange-light': status === 'pending',
         'bg-custom-gray-light': status === 'draft',
