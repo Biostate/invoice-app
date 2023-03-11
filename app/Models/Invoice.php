@@ -46,11 +46,13 @@ class Invoice extends Model
         'payment_terms',
         'status',
         'payment_due',
+        'invoice_date',
         'total',
     ];
 
     protected $casts = [
         'payment_due' => 'date',
+        'invoice_date' => 'date',
     ];
 
     public function user(): BelongsTo
