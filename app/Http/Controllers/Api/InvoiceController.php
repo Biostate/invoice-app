@@ -97,5 +97,11 @@ class InvoiceController extends Controller
         $invoice = Invoice::findOrFail($id);
 
         $this->authorize('delete', $invoice);
+
+        $invoice->delete();
+
+        return response()->apiResponse(
+            message: 'Invoice deleted successfully'
+        );
     }
 }
