@@ -1,18 +1,18 @@
 <template>
     <div
-        class="grid grid-cols-12 mb-3"
+        class="grid grid-cols-12 mb-3 text-base font-bold"
     >
-        <div class="col-span-7">
-            <p class="text-[15px] font-bold text-custom-black">{{ item.name }}</p>
+        <div class="col-span-7 text-custom-black">
+            {{ item.name }}
         </div>
-        <div>
-            <p class="text-[15px] font-bold text-custom-seven text-center">{{ item.quantity }}</p>
+        <div class="text-custom-seven text-center">
+            {{ item.quantity }}
         </div>
-        <div class="col-span-2">
-            <p class="text-[15px] font-bold text-custom-seven text-right">{{ MoneyFormatter(item.price, '£') }}</p>
+        <div class="col-span-2 text-custom-seven text-right">
+            {{ MoneyFormatter(item.price, '£') }}
         </div>
-        <div class="col-span-2">
-            <p class="text-[15px] font-bold text-custom-black text-right">{{ MoneyFormatter(item.total, '£') }}</p>
+        <div class="col-span-2 text-custom-black text-right">
+            {{ MoneyFormatter(item.total, '£') }}
         </div>
     </div>
 </template>
